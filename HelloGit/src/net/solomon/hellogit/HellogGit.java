@@ -6,10 +6,12 @@ public class HellogGit {
 		//a greeting
 		// addming more comment
 		System.out.println("Hello solomon");
-		System.out.println("Hello Git Deve 1 added this too");
+		System.out.println("Hello Git Deve 1 added this too hello deve2");
+		
 		// I am adding this comment from git hub site
 		// more comment from git hub agina
 	System.out.println("this is from local");
+	
 	}
 
 }
