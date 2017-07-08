@@ -7,6 +7,7 @@ public class HellogGit {
 		// addming more comment
 		System.out.println("Hello solomon");
 		System.out.println("Hello Git");
+		// I am adding this comment from git hub site
 	}
 
 }
