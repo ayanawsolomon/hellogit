@@ -1,29 +1,36 @@
 package stepDefinitions;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import BDDGroupIID.BDDArtifactID.Drivers;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Registration {
-	WebDriver driver;
+	public static int i;
+	WebDriver driver = Drivers.getDriver();
 	@Given("^your are in registraion page \"(.*?)\"$")
 	public void your_are_in_registraion_page(String url) throws Throwable {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\solomon\\workspace\\MyDrivers\\chromedriver.exe");
-			driver = new ChromeDriver();
-			driver.get(url);
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);	// wait will be applied for any element not available for the first try
+			driver.findElement(By.linkText("REGISTER")).click();;
 				
 	}
 
@@ -47,13 +54,17 @@ public class Registration {
 		driver.findElement(By.name("postalCode")).sendKeys(data.get(0).get("postalCode"));
 		driver.findElement(By.name("email")).sendKeys(data.get(0).get("userName"));
 		
-	   // throw new PendingException();
+		
 	}
+
+	   // throw new PendingException();
+	
 
 	@When("^I insert password \"(.*?)\" and confirm password  \"(.*?)\"$")
 	public void i_insert_password_and_confirm_password(String pass, String confirm) throws Throwable {
 		driver.findElement(By.name("password")).sendKeys(pass);
 		driver.findElement(By.name("confirmPassword")).sendKeys(confirm);
+		takeScreenShot("BeforeSubmit");
 	    //throw new PendingException();
 	}
 
@@ -66,9 +77,11 @@ public class Registration {
 	@Then("^\"(.*?)\" page should be seen$")
 	public void page_should_be_seen(String url) throws Throwable {
 		try{
+			takeScreenShot("AfterSubmit");
 			Assert.assertTrue(driver.getCurrentUrl().contains(url));
+			//driver.quit();
 		}catch(Exception e){
-			driver.quit();
+			//driver.quit();
 
 			//Assert.fail();
 		}
@@ -76,7 +89,28 @@ public class Registration {
 	    
 	   // throw new PendingException();
 	}
-
-
+@After
+public void test(){
+	//driver.quit();
+}
+public void takeScreenShot(String when){
+	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("window.scrollBy(0,250)", "");
+	
+	
+	
+	i++;
+	File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	try {
+	 // now copy the  screenshot to desired location using copyFile //method
+	FileUtils.copyFile(src, new File("C:/selenium/" +  i + when + ".png"));
+	}
+	 
+	catch (IOException e)
+	 {
+	  System.out.println(e.getMessage());
+	 
+	 }
+}
 
 }

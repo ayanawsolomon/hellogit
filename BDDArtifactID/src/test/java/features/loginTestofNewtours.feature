@@ -16,24 +16,26 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@tag1
 Feature: Loing test for newtorus web
   This is to test the newtorus login page functionality with different credencials
 
   Background: 
     #Transfering data without keywords use ""
     Given I am in newtours home page "http://newtours.demoaut.com/"
+   
 
-  @tag1
+  @tag2
   Scenario: Login Success with user name a and password a
     When I insert user name="a" and password="a"
     And I press Login button
     Then "SIGN-OFF" link should be seen on the top menue
-
+@tag1 @tag2
   Scenario: login not success with username abced and pass ab
     When I insert user name "abcd" and password "ab"
     And i press login
     Then "SIGN-ON" link shoudl be seen
+
 
   Scenario: test gmail page
     Givne I am on gemail home page "http://www.newtours.demoaut.com"
@@ -43,7 +45,7 @@ Feature: Loing test for newtorus web
     And Press loing button
     Then I should get login success
 
-  @tag2
+  @tag1
   Scenario Outline: Login test with different credencials
     When I insert user name="<userName>" and password="<password>"
     And I press Login button
@@ -58,4 +60,4 @@ Feature: Loing test for newtorus web
       | bbbc     | bbbc     | SIGN-ON  |
       |          | a        | SIGN-ON  |
       | a        |          | SIGN-ON  |
-      |          |          | SIGN-ON |
+      |          |          | SIGN-ON  |

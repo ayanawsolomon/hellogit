@@ -1,8 +1,8 @@
+@Before
 Feature: Testing registriaon page with different values
   As acompany our customers should register
   with correct data
-  so that we can refer them easily
-
+  so that we can refer them easi
   Background: 
     Given your are in registraion page "http://newtours.demoaut.com/mercuryregister.php"
     And Add correct data to registration form
@@ -15,7 +15,6 @@ Feature: Testing registriaon page with different values
     When I insert password "<password>" and confirm password  "<confirm>"
     And I click submit
     Then "<url>" page should be seen
-
     # transfering data using Keywords
     Examples: 
       | password    | confirm     | url                        |
