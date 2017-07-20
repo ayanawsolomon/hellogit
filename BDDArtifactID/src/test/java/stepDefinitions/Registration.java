@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import BDDGroupIID.BDDArtifactID.Drivers;
+import BDDGroupIID.BDDArtifactID.TestRunner;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
@@ -27,7 +28,7 @@ import cucumber.api.java.en.When;
 
 public class Registration {
 	public static int i;
-	WebDriver driver = Drivers.getDriver();
+	WebDriver driver = TestRunner.getDriver();
 	@Given("^your are in registraion page \"(.*?)\"$")
 	public void your_are_in_registraion_page(String url) throws Throwable {
 			driver.findElement(By.linkText("REGISTER")).click();;
