@@ -6,7 +6,7 @@ public class IFElseConditon {
 		// using if else statement to give grade report 
 		// >=80 score A, who scores >=99, A+ 
 		// 80 > x >= 70 , then score B
-		// 70 > x > 60 , then score C
+		// 70 > x >= 60 , then score C
 		// 60 > x > 50 , then core D
 		// 50> x >=0, then score F
 		int grade =100;//81==>A,65==>c, 76==>B, 54==> D, 45==> F, 101==>out, 99==>A+ -4
