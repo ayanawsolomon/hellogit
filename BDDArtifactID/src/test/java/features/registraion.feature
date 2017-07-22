@@ -16,7 +16,7 @@ Feature: Testing registriaon page with different values
     When I insert password "<password>" and confirm password  "<confirm>"
     And I click submit
     Then "<url>" page should be seen
-    # transfering data using examples Keywords
+    # transfering data using examples Keywords comment is changed
     Examples:  
       | password    | confirm     | url                        |
       | solomonA1#  | solomonA1#  | create_account_success.php |
