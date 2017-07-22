@@ -17,7 +17,7 @@ Feature: Testing registriaon page with different values
     And I click submit
     Then "<url>" page should be seen
     # transfering data using examples Keywords
-    Examples: 
+    Examples:  
       | password    | confirm     | url                        |
       | solomonA1#  | solomonA1#  | create_account_success.php |
       | solomonA1   | solomonA1   | mercuryregister.php        |
