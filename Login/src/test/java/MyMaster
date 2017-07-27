@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="class">
+  <test name="Test">
+    <classes>
+      <class name="testNG.NewTest"/>
+      <class name="testNG.LoginLogout"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Test1">
+    <classes>
+      <class name="testNG.NewTest"/>
+      <class name="testNG.LoginLogout"/>
+    </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->
